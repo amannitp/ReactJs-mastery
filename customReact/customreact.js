@@ -3,9 +3,16 @@
 function customContainer(customEle,container){
 
     const ele=document.createElement(customEle.type);
-    ele.setAttribute('src',customEle.props.src);
-    ele.setAttribute('href',customEle.props.href);
     ele.innerHTML=customEle.children;
+
+
+    // ele.setAttribute('src',customEle.props.src);
+    // ele.setAttribute('href',customEle.props.href);
+   
+    for (const key in customEle.props) {
+        ele.setAttribute(key,customEle.props[key])
+    }
+  
     
     container.appendChild(ele);
 }
